@@ -53,3 +53,17 @@ class Database:
                                                           start=1)
         ])
         return sql, tuple(parameters.values())
+
+    # for users
+    async def create_user(self, phone, username, telegram_id, first_name, last_name):
+        sql = "INSERT INTO Users (phone, username, telegram_id, first_name, last_name) VALUES($1, $2, $3, $4, $5) returning *"
+        return await self.execute(sql, phone, username, telegram_id, first_name, last_name, fetchrow=True)
+
+    async def select_all_users(self):
+        sql = "SELECT * FROM Users"
+        return await self.execute(sql, fetch=True)
+
+    async def select_users(self, **kwargs):
+        sql = "SELECT * FROM Users WHERE "
+        sql, parameters = self.format_args(sql, parameters=kwargs)
+        return await self.execute(sql, *parameters, fetch=True)

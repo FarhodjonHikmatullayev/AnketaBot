@@ -5,9 +5,9 @@ env = Env()
 env.read_env()
 
 # .env fayl ichidan quyidagilarni o'qiymiz
-BOT_TOKEN = env.str("BOT_TOKEN")  # Bot toekn
+BOT_TOKEN = env.str("BOT_TOKEN")  # Bot token
 ADMINS = env.list("ADMINS")  # adminlar ro'yxati
-SUPERADMINS = env.list("SUPERADMINS")  # adminlar ro'yxati
+WEB_APP_URL = env.str("WEB_APP_URL")
 
 DEVELOPMENT_MODE = env.str("DEVELOPMENT_MODE", "False") == "True"
 

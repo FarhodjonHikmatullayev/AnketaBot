@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ma'lumot to'plovchi forma</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+            color: #333;
+        }
+        form {
+            max-width: 600px;
+            margin: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="date"], input[type="number"], textarea, select {
+            width: 100%;
+            margin: 8px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+<h1>Ma'lumot to'plovchi forma</h1>
+<form id="applicationForm">
+    <label for="first_name">Ism:</label>
+    <input type="text" id="first_name" name="first_name" required>
+
+    <label for="last_name">Familiya:</label>
+    <input type="text" id="last_name" name="last_name" required>
+
+    <label for="father_name">Otasining ismi:</label>
+    <input type="text" id="father_name" name="father_name" required>
+
+    <label for="birth_date">Tug'ilgan sana:</label>
+    <input type="date" id="birth_date" name="birth_date" required>
+
+    <label for="gender">Jinsingiz:</label>
+    <select id="gender" name="gender" required>
+        <option value="male">Erkak</option>
+        <option value="female">Ayol</option>
+    </select>
+
+    <label for="marital_status">Oilaviy xolatingiz:</label>
+    <select id="marital_status" name="marital_status" required>
+        <option value="single">Turmush qurmagan</option>
+        <option value="married">Turmush qurgan</option>
+        <option value="divorced">Ajrashgan</option>
+    </select>
+
+    <label for="education_institution">Ta'lim muassasalarining nomi va bitirgan yilingiz:</label>
+    <input type="text" id="education_institution" name="education_institution" required>
+
+    <label for="height_weight">Bo'y va vazningiz (sm/kg):</label>
+    <input type="text" id="height_weight" name="height_weight" required>
+
+    <label for="is_student">Siz hozirda qaysidir universitet, litsey yoki kollej talabasimisiz?</label>
+    <select id="is_student" name="is_student" required>
+        <option value="true">Ha</option>
+        <option value="false">Yo'q</option>
+    </select>
+
+    <label for="languages">Qaysi tillarni bilasiz?</label>
+    <textarea id="languages" name="languages" rows="3"></textarea>
+
+    <label for="region">Viloyat (Haqiqiy turar joy):</label>
+    <input type="text" id="region" name="region" required>
+
+    <label for="city_district">Shaxar/Tuman (Haqiqiy turar joy):</label>
+    <input type="text" id="city_district" name="city_district" required>
+
+    <label for="address">Manzilingiz (MFY, ko'cha):</label>
+    <input type="text" id="address" name="address" required>
+
+    <label for="desired_branch">Qaysi filialda ishlashni xohlaysiz?</label>
+    <input type="text" id="desired_branch" name="desired_branch" required>
+
+    <label for="desired_position">Qaysi lavozimda ishlashni xohlaysiz?</label>
+    <input type="text" id="desired_position" name="desired_position" required>
+
+    <label for="worked_before">Avval bizning kompaniyamizda ishlaganmisiz?</label>
+    <select id="worked_before" name="worked_before" required>
+        <option value="true">Ha</option>
+        <option value="false">Yo'q</option>
+    </select>
+
+    <label for="is_citizen">O'zbekiston Respublikasi fuqarosimisiz?</label>
+    <select id="is_citizen" name="is_citizen" required>
+        <option value="true">Ha</option>
+        <option value="false">Yo'q</option>
+    </select>
+
+    <label for="is_employed">Hozirda ish bilan ta'minlangamisiz?</label>
+    <select id="is_employed" name="is_employed" required>
+        <option value="true">Ha</option>
+        <option value="false">Yo'q</option>
+    </select>
+
+    <label for="relative_in_company">Bizdang kompaniyada ishlaydigan yaqin qarindoshingiz bormi?</label>
+    <select id="relative_in_company" name="relative_in_company" required>
+        <option value="true">Ha</option>
+        <option value="false">Yo'q</option>
+    </select>
+
+    <label for="software_skills">Qaysi dasturlardan foydalana olasiz?</label>
+    <textarea id="software_skills" name="software_skills" rows="3"></textarea>
+
+    <label for="health_info">Sog'ligingiz xaqida ma'lumotlar:</label>
+    <textarea id="health_info" name="health_info" rows="3"></textarea>
+
+    <label for="last_salary">Oxirgi ish joyida olgan ish xaqingiz (so'm):</label>
+    <input type="number" id="last_salary" name="last_salary" step="0.01">
+
+    <label for="desired_salary">Qancha maosh olishni xohlaysiz (so'm):</label>
+    <input type="number" id="desired_salary" name="desired_salary" step="0.01" required>
+
+    <label for="has_personal_car">Shaxsiy avtomobilingiz bormi?</label>
+    <select id="has_personal_car" name="has_personal_car" required>
+        <option value="true">Ha</option>
+        <option value="false">Yo'q</option>
+    </select>
+
+    <label for="car_model">Avtomabilingiz rusumi:</label>
+    <input type="text" id="car_model" name="car_model">
+
+    <label for="can_travel">Xizmat safariga bora olasizmi?</label>
+    <select id="can_travel" name="can_travel" required>
+        <option value="true">Ha</option>
+        <option value="false">Yo'q</option>
+    </select>
+
+    <label for="job_source">Bo'sh ish o'rni haqida qayerdan bildingiz?</label>
+    <input type="text" id="job_source" name="job_source" required>
+
+    <label for="has_criminal_record">Sudlanganmisiz?</label>
+    <select id="has_criminal_record" name="has_criminal_record" required>
+        <option value="true">Ha</option>
+        <option value="false">Yo'q</option>
+    </select>
+
+    <label for="criminal_record_details">Sudlanganligingiz (Qaysi moddalar bo'yicha):</label>
+    <textarea id="criminal_record_details" name="criminal_record_details"></textarea>
+
+    <label for="additional_phone">Qo'shimcha telefon raqam:</label>
+    <input type="text" id="additional_phone" name="additional_phone">
+
+    <label for="personal_photo">Shaxsiy rasmingiz:</label>
+    <input type="file" id="personal_photo" name="personal_photo" required>
+
+    <label for="passport_type">Pasport turi:</label>
+    <select id="passport_type" name="passport_type" required>
+        <option value="passport">Pasport</option>
+        <option value="id_card">ID karta</option>
+    </select>
+
+    <label for="passport_photo">Pasport rasmi (yoki ID card):</label>
+    <input type="file" id="passport_photo" name="passport_photo" required>
+
+    <label for="id_card_back_photo">ID card orqa tomon rasmi:</label>
+    <input type="file" id="id_card_back_photo" name="id_card_back_photo" required>
+
+    <label for="consent">Roziman (Rozilik shartlari bilan tanishish):</label>
+    <input type="checkbox" id="consent" name="consent" required>
+
+    <input type="submit" value="Yuborish">
+</form>
+
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<script>
+    const tg = window.Telegram.WebApp;
+    tg.expand(); // Web Appni to‘liq ekran qilish uchun
+    document.getElementById('applicationForm').onsubmit = function(event) {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const jsonData = {};
+
+        formData.forEach((value, key) => {
+            jsonData[key] = value;
+        });
+        console.log(JSON.stringify(jsonData)); // Yuborilayotgan ma'lumotlarni ko'rsatish
+        tg.sendData(JSON.stringify(jsonData)); // Botga forma ma'lumotlarini yuborish
+        tg.close(); // Web Appni yopish
+    };
+</script>
+</body>
+</html>
