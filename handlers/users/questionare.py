@@ -1,3 +1,5 @@
+import json
+
 from aiogram import types
 from aiogram.types import ContentType
 
@@ -13,5 +15,6 @@ async def questionare_filter(call: types.CallbackQuery):
 
 @dp.message_handler(content_types=ContentType.WEB_APP_DATA)
 async def start_questionare(message: types.Message):
-    print('nimadir')
-    await message.answer(message.web_app_data.data)
+    data = json.loads(message.web_app_data.data)  # JSON ma'lumotlarini o'qish
+    print(data)  # Konsolga chiqarish
+    await message.answer(f"Qabul qilingan ma'lumotlar: {data}")  # Foydalanuvchiga javob berish

@@ -23,7 +23,7 @@ questionare = InlineKeyboardMarkup(
         [
             InlineKeyboardButton(
                 text="Anketa to'ldirish",
-                web_app=WebAppInfo(url='https://farhodhikmatullayev.github.io/ExampleHtml/form.html')
+                web_app=WebAppInfo(url='https://examplehtml.onrender.com/form.html')
             )
         ]
     ]
