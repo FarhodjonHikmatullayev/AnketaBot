@@ -65,11 +65,13 @@ class Questionnaire(models.Model):
     id_card_back_photo = models.ImageField(upload_to='Project/id_card_back_photos/',
                                            verbose_name="ID card orqa tomon rasmi")
     consent = models.BooleanField(default=False, verbose_name="Roziman * (Rozilik shartlari bilan tanishish)")
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
     class Meta:
         db_table = 'questionnaire'
         verbose_name = 'Questionnaire'
         verbose_name_plural = 'Anketalar'
+
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"

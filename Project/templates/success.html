@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muvaffaqiyatli yuborish</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #0088cc 0%, #00bfff 100%);
+            color: #ffffff;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            max-width: 90%; /* Responsive max width */
+            width: 400px; /* Fixed width for larger screens */
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: #0088cc;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #0088cc;
+            color: #ffffff;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em; /* Smaller font size for mobile */
+            }
+
+            p {
+                font-size: 1em; /* Smaller font size for mobile */
+            }
+
+            .container {
+                padding: 20px; /* Reduced padding for mobile */
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Sizning anketangiz yuborildi</h1>
+    <p>Rahmat! Sizning ma'lumotlaringiz muvaffaqiyatli saqlandi.</p>
+<!--    <button class="button" onclick="window.history.back();">Ortga qaytish</button>-->
+</div>
+</body>
+</html>

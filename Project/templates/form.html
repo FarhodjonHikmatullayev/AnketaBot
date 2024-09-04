@@ -49,7 +49,8 @@
 </head>
 <body>
 <h1>Ma'lumot to'plovchi forma</h1>
-<form id="applicationForm">
+<form id="applicationForm" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
     <label for="first_name">Ism:</label>
     <input type="text" id="first_name" name="first_name" required>
 
@@ -192,32 +193,32 @@
     <input type="submit" value="Yuborish">
 </form>
 
-<script src="https://telegram.org/js/telegram-web-app.js"></script>
-<script>
-    const tg = window.Telegram.WebApp;
-    tg.expand(); // Web Appni to‘liq ekran qilish uchun
+<!--<script src="https://telegram.org/js/telegram-web-app.js"></script>-->
+<!--<script>-->
+<!--    const tg = window.Telegram.WebApp;-->
+<!--    tg.expand(); // Web Appni to‘liq ekran qilish uchun-->
 
-    document.getElementById('applicationForm').onsubmit = async function (event) {
-        event.preventDefault(); // Formaning standart yuborilishini to'xtatish
+<!--    document.getElementById('applicationForm').onsubmit = async function (event) {-->
+<!--        event.preventDefault(); // Formaning standart yuborilishini to'xtatish-->
 
-        const formData = new FormData(event.target);
-        const jsonData = {};
+<!--        const formData = new FormData(event.target);-->
+<!--        const jsonData = {};-->
 
-        formData.forEach((value, key) => {
-            jsonData[key] = value;
-        });
+<!--        formData.forEach((value, key) => {-->
+<!--            jsonData[key] = value;-->
+<!--        });-->
 
-        try {
-            console.log(JSON.stringify(jsonData)); // Yuborilayotgan ma'lumotlarni ko'rsatish
-            await tg.sendData(JSON.stringify(jsonData)); // Botga forma ma'lumotlarini yuborish
-            alert('Ma\'lumot yuborildi!'); // Foydalanuvchiga xabar berish
-        } catch (error) {
-            console.error('Xatolik:', error);
-            alert('Ma\'lumot yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.'); // Xatolik xabari
-        } finally {
-            tg.close(); // Web Appni yopish
-        }
-    };
-</script>
+<!--        try {-->
+<!--            console.log(JSON.stringify(jsonData)); // Yuborilayotgan ma'lumotlarni ko'rsatish-->
+<!--            await tg.sendData(JSON.stringify(jsonData)); // Botga forma ma'lumotlarini yuborish-->
+<!--            alert('Ma\'lumot yuborildi!'); // Foydalanuvchiga xabar berish-->
+<!--        } catch (error) {-->
+<!--            console.error('Xatolik:', error);-->
+<!--            alert('Ma\'lumot yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.'); // Xatolik xabari-->
+<!--        } finally {-->
+<!--            tg.close(); // Web Appni yopish-->
+<!--        }-->
+<!--    };-->
+<!--</script>-->
 </body>
 </html>
