@@ -8,6 +8,6 @@ class UserAdmin(admin.ModelAdmin):
     search_fields = ('username', 'phone', 'telegram_id')
 
 
-@admin.register(Questionnaire)
-class QuestionnaireAdmin(admin.ModelAdmin):
+@admin.register(Application)
+class ApplicationAdmin(admin.ModelAdmin):
     pass

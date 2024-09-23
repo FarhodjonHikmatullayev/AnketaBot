@@ -3,52 +3,258 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Ma'lumot to'plovchi forma</title>
     <style>
+        .response-label {
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /*.radio-container {*/
+        /*    display: inline-block;*/
+        /*    margin-right: 20px;*/
+        /*    vertical-align: middle;*/
+        /*}*/
+
+        .radio-label {
+            color: #333;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+        .radio-container input[type="radio"] {
+            vertical-align: middle;
+        }
+
+        .radio-container {
+            display: inline-block;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+
+        .radio-container label {
+            display: inline-block;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #00b300; /* Yashil rang */
+            margin: 0;
             padding: 20px;
-            color: #333;
         }
 
-        form {
-            max-width: 600px;
-            margin: auto;
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .checkbox-item input[type="checkbox"] {
+            margin-right: 10px;
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #005c00;
+            border-radius: 3px;
             background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        label {
-            font-weight: bold;
-        }
-
-        input[type="text"], input[type="email"], input[type="date"], input[type="number"], textarea, select {
-            width: 100%;
-            margin: 8px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        input[type="submit"] {
-            background-color: #4caf50;
-            color: white;
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
             cursor: pointer;
         }
 
-        input[type="submit"]:hover {
-            background-color: #45a049;
+        .checkbox-item input[type="checkbox"]:checked {
+            background-color: #005c00;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: center;
         }
+
+        .checkbox-item label {
+            font-size: 16px;
+            color: #004d00;
+            cursor: pointer;
+        }
+
+        #submit-btn {
+            background-color: #005c00;
+            color: #ffffff;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        #submit-btn:hover {
+            background-color: #004d00;
+        }
+
+        #submit-btn:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(0, 92, 0, 0.5);
+        }
+
+        #applicationForm {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 8px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+
+        h3 {
+            padding-bottom: 1px;
+            color: #004d00;
+            text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            display: block;
+            margin: 8px 4px 5px;
+            font-weight: bold; /* Qalin yozuv */
+            color: #004d00;
+        }
+
+        input[type="text"],
+        input[type="date"],
+        input[type="number"],
+        input[type="file"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #2F4F4F;
+            border-radius: 4px;
+            transition: border-color 0.3s;
+            box-sizing: border-box; /* Kichik jadvallar uchun */
+            font-size: 14px; /* Kichikroq yozuv */
+        }
+
+        input[type="text"]:focus,
+        input[type="number"]:focus,
+        select:focus,
+        textarea:focus {
+            border-color: #007bff;
+            outline: None;
+        }
+
+        button {
+            background-color: #005c00;
+            color: #ffffff;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        button:hover {
+            background-color: #008000;
+        }
+
+        table {
+            width: 100%; /* Jadvalni to'liq kenglikda */
+            border-collapse: collapse; /* Jadvalni ixcham qilish */
+            margin-bottom: 1px;
+        }
+
+        th, td {
+            padding: 2px; /* Jadvaldagi maydonlar uchun */
+            text-align: left; /* Matnni chapga joylash */
+            border: 2px solid #2F4F4F; /* Jadval chegaralari */
+            font-size: 14px; /* Kichikroq yozuv */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            #applicationForm {
+                padding: 15px;
+            }
+        }
+
+
+        .file-input {
+            position: relative;
+            display: inline-block;
+            background-color: #005c00;
+            color: #ffffff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            overflow: hidden;
+            transition: background-color 0.3s;
+        }
+
+        .file-input input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-input label {
+            cursor: pointer;
+        }
+
+        .file-input:hover {
+            background-color: #004d00;
+        }
+
+        .response-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .radio-container {
+            display: inline-block;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+
+        .radio-label {
+            color: #666;
+            font-size: 14px;
+            margin-left: 5px;
+        }
+
+
     </style>
 </head>
 <body>
-<h1>Ma'lumot to'plovchi forma</h1>
+<h1>Anketa</h1>
 <form id="applicationForm" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <label for="first_name">Ism:</label>
@@ -57,10 +263,7 @@
     <label for="last_name">Familiya:</label>
     <input type="text" id="last_name" name="last_name" required>
 
-    <label for="father_name">Otasining ismi:</label>
-    <input type="text" id="father_name" name="father_name" required>
-
-    <label for="birth_date">Tug'ilgan sana:</label>
+    <label for="birth_date">Tug'ilgan sanangiz:</label>
     <input type="date" id="birth_date" name="birth_date" required>
 
     <label for="gender">Jinsingiz:</label>
@@ -76,149 +279,539 @@
         <option value="divorced">Ajrashgan</option>
     </select>
 
-    <label for="education_institution">Ta'lim muassasalarining nomi va bitirgan yilingiz:</label>
-    <input type="text" id="education_institution" name="education_institution" required>
+    <h3>Ta'lim muassasalari</h3>
+    <table id="educationTable">
+        <thead>
+        <tr>
+            <th>Ta'lim muassasasi</th>
+            <th>Bitirgan yilingiz</th>
+            <th></th> <!-- Empty header for delete icon -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" name="education_institution[]" required></td>
+            <td><input type="text" name="graduation_year[]" required></td>
+            <td>
+                <button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">
+                    <i class="fa fa-trash" style="color: red; font-size: 14px;"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" onclick="addEducation()">+</button>
 
-    <label for="height_weight">Bo'y va vazningiz (sm/kg):</label>
-    <input type="text" id="height_weight" name="height_weight" required>
+    <h3>Qaysi tillarni bilasiz?</h3>
+    <table id="languageTable">
+        <thead>
+        <tr>
+            <th>Til</th>
+            <th>Bilish darajasi</th>
+            <th></th> <!-- Empty header for delete icon -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" name="language[]" required></td>
+            <td>
+                <select name="language_level[]" required>
+                    <option value="yaxshi">Yaxshi</option>
+                    <option value="o'rtacha">O'rtacha</option>
+                    <option value="yomon">Yomon</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">
+                    <i class="fa fa-trash" style="color: red; font-size: 14px;"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-    <label for="is_student">Siz hozirda qaysidir universitet, litsey yoki kollej talabasimisiz?</label>
-    <select id="is_student" name="is_student" required>
-        <option value="true">Ha</option>
-        <option value="false">Yo'q</option>
+
+    <!-- Font Awesome ikonalarini qo'shish uchun -->
+    <button type="button" onclick="addLanguage()">+</button>
+
+    <label for="region">Viloyat:</label>
+    <select id="region" name="region" onchange="updateDistricts()" required>
+        <option value="">Viloyatni tanlang...</option>
+        <option value="toshkent">Toshkent</option>
+        <option value="andijon">Andijon</option>
+        <option value="buxoro">Buxoro</option>
+        <option value="jizzax">Jizzax</option>
+        <option value="navoiy">Navoiy</option>
+        <option value="namangan">Namangan</option>
+        <option value="samarqand">Samarqand</option>
+        <option value="sirdaryo">Sirdaryo</option>
+        <option value="surxondaryo">Surxondaryo</option>
+        <option value="farg'ona">Farg'ona</option>
+        <option value="xorazm">Xorazm</option>
+        <option value="qashqadaryo">Qashqadaryo</option>
+        <option value="qoraqalpog'iston">Qoraqalpog'iston</option>
     </select>
 
-    <label for="languages">Qaysi tillarni bilasiz?</label>
-    <textarea id="languages" name="languages" rows="3"></textarea>
-
-    <label for="region">Viloyat (Haqiqiy turar joy):</label>
-    <input type="text" id="region" name="region" required>
-
-    <label for="city_district">Shaxar/Tuman (Haqiqiy turar joy):</label>
-    <input type="text" id="city_district" name="city_district" required>
+    <label for="city_district">Tuman:</label>
+    <select id="city_district" name="city_district" required>
+        <option value="">Tumanni tanlang...</option>
+    </select>
 
     <label for="address">Manzilingiz (MFY, ko'cha):</label>
     <input type="text" id="address" name="address" required>
 
-    <label for="desired_branch">Qaysi filialda ishlashni xohlaysiz?</label>
-    <input type="text" id="desired_branch" name="desired_branch" required>
+    <label>Qaysi filialda ishlashni xohlaysiz?</label>
+
+    <div class="checkbox-group">
+        <div class="checkbox-item">
+            <input type="checkbox" id="branch1" name="desired_branch[]" value="Mega Center">
+            <label for="branch1">Mega Center</label>
+        </div>
+        <div class="checkbox-item">
+            <input type="checkbox" id="branch2" name="desired_branch[]" value="Goldmart">
+            <label for="branch2">Goldmart</label>
+        </div>
+        <div class="checkbox-item">
+            <input type="checkbox" id="branch3" name="desired_branch[]" value="Oila Market">
+            <label for="branch3">Oila Market</label>
+        </div>
+        <div class="checkbox-item">
+            <input type="checkbox" id="branch4" name="desired_branch[]" value="Smart City">
+            <label for="branch4">Smart City</label>
+        </div>
+    </div>
 
     <label for="desired_position">Qaysi lavozimda ishlashni xohlaysiz?</label>
-    <input type="text" id="desired_position" name="desired_position" required>
+    <select id="desired_position" name="desired_position" required>
+        <option value="" disabled selected>Tanlang...</option>
+        <option value="Sotuvchi">Sotuvchi</option>
+        <option value="Kassir">Kassir</option>
+        <option value="Oxrana">Oxrana</option>
+        <option value="Gruzchik">Gruzchik</option>
+        <option value="Novvoy">Novvoy</option>
+        <option value="Konditer">Konditer</option>
+        <option value="Operator(office)">Operator(office)</option>
+        <option value="Buxgalter">Buxgalter</option>
+        <option value="Kadrlar bo'limi">Kadrlar bo'limi</option>
+        <option value="Oshpaz">Oshpaz</option>
+        <option value="Kuryer(dastavka)">Kuryer(dastavka)</option>
+        <option value="Oshxona ishchisi(pasuda-moyka, stol-uborka)">Oshxona ishchisi(pasuda-moyka, stol-uborka)</option>
+        <option value="Farrosh">Farrosh</option>
+        <option value="Ofitsant">Ofitsant</option>
+        <option value="O'yingoh nazoratchisi">O'yingoh nazoratchisi</option>
+        <option value="Operator(dispatcher)">Operator(dispatcher)</option>
+        <option value="Elektrik">Elektrik</option>
+        <option value="Mexanik">Mexanik</option>
+        <option value="Barmen">Barmen</option>
+
+    </select>
 
     <label for="worked_before">Avval bizning kompaniyamizda ishlaganmisiz?</label>
     <select id="worked_before" name="worked_before" required>
+        <option value="" disabled selected></option>
         <option value="true">Ha</option>
         <option value="false">Yo'q</option>
     </select>
 
     <label for="is_citizen">O'zbekiston Respublikasi fuqarosimisiz?</label>
     <select id="is_citizen" name="is_citizen" required>
+        <option value="" disabled selected></option>
         <option value="true">Ha</option>
         <option value="false">Yo'q</option>
     </select>
 
-    <label for="is_employed">Hozirda ish bilan ta'minlangamisiz?</label>
-    <select id="is_employed" name="is_employed" required>
+    <label for="is_employed">Oldin biror joyda ishlaganmisiz?</label>
+    <select id="is_employed" name="is_employed" required onchange="togglePreviousJobInfo()">
+        <option value="" disabled selected></option>
         <option value="true">Ha</option>
         <option value="false">Yo'q</option>
     </select>
+
+    <div id="previousJobInfo" class="hidden">
+        <label for="previous_job">Qayerda ishlagansiz?</label>
+        <input type="text" id="previous_job" name="previous_job">
+
+        <label for="previous_salary">U yerda qancha oylik maosh olgansiz (so'm):</label>
+        <input type="number" id="previous_salary" name="previous_salary" step="0.01">
+    </div>
 
     <label for="relative_in_company">Bizdang kompaniyada ishlaydigan yaqin qarindoshingiz bormi?</label>
     <select id="relative_in_company" name="relative_in_company" required>
+        <option value="" disabled selected></option>
         <option value="true">Ha</option>
         <option value="false">Yo'q</option>
     </select>
 
-    <label for="software_skills">Qaysi dasturlardan foydalana olasiz?</label>
-    <textarea id="software_skills" name="software_skills" rows="3"></textarea>
+    <h3>Qaysi dasturlardan foydalana olasiz?</h3>
+    <table id="softwareTable">
+        <thead>
+        <tr>
+            <th>Dastur nomi</th>
+            <th>Bilish darajasi</th>
+            <th></th> <!-- Empty header for delete icon -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" name="software[]" value="Word" required></td>
+            <td>
+                <select name="software_level[]" required>
+                    <option value="yomon">Yomon</option>
+                    <option value="o'rtacha">O'rtacha</option>
+                    <option value="yaxshi">Yaxshi</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">
+                    <i class="fa fa-trash" style="color: red; font-size: 14px;"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" name="software[]" value="Excel" required></td>
+            <td>
+                <select name="software_level[]" required>
+                    <option value="yomon">Yomon</option>
+                    <option value="o'rtacha">O'rtacha</option>
+                    <option value="yaxshi">Yaxshi</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">
+                    <i class="fa fa-trash" style="color: red; font-size: 14px;"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" name="software[]" value="Photoshop" required></td>
+            <td>
+                <select name="software_level[]" required>
+                    <option value="yomon">Yomon</option>
+                    <option value="o'rtacha">O'rtacha</option>
+                    <option value="yaxshi">Yaxshi</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">
+                    <i class="fa fa-trash" style="color: red; font-size: 14px;"></i>
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="text" name="software[]" value="1C" required></td>
+            <td>
+                <select name="software_level[]" required>
+                    <option value="yomon">Yomon</option>
+                    <option value="o'rtacha">O'rtacha</option>
+                    <option value="yaxshi">Yaxshi</option>
+                </select>
+            </td>
+            <td>
+                <button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">
+                    <i class="fa fa-trash" style="color: red; font-size: 14px;"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" onclick="addSoftware()">+</button>
 
     <label for="health_info">Sog'ligingiz xaqida ma'lumotlar:</label>
     <textarea id="health_info" name="health_info" rows="3"></textarea>
 
-    <label for="last_salary">Oxirgi ish joyida olgan ish xaqingiz (so'm):</label>
-    <input type="number" id="last_salary" name="last_salary" step="0.01">
+
+    <label for="height_weight">Bo'y va vazningiz(sm/kg):</label>
+    <input type="text" id="height_weight" name="height_weight" placeholder="Misol uchun: 170sm/70kg" required>
+
 
     <label for="desired_salary">Qancha maosh olishni xohlaysiz (so'm):</label>
     <input type="number" id="desired_salary" name="desired_salary" step="0.01" required>
 
     <label for="has_personal_car">Shaxsiy avtomobilingiz bormi?</label>
     <select id="has_personal_car" name="has_personal_car" required>
+        <option value="" disabled selected></option>
         <option value="true">Ha</option>
         <option value="false">Yo'q</option>
     </select>
 
-    <label for="car_model">Avtomabilingiz rusumi:</label>
-    <input type="text" id="car_model" name="car_model">
 
     <label for="can_travel">Xizmat safariga bora olasizmi?</label>
     <select id="can_travel" name="can_travel" required>
+        <option value="" disabled selected></option>
         <option value="true">Ha</option>
         <option value="false">Yo'q</option>
     </select>
 
-    <label for="job_source">Bo'sh ish o'rni haqida qayerdan bildingiz?</label>
-    <input type="text" id="job_source" name="job_source" required>
-
-    <label for="has_criminal_record">Sudlanganmisiz?</label>
-    <select id="has_criminal_record" name="has_criminal_record" required>
-        <option value="true">Ha</option>
-        <option value="false">Yo'q</option>
+    <h3>Bo'sh ish o'rni haqida qayerdan bildingiz?</h3>
+    <select id="job_source" name="job_source" required>
+        <option value="" disabled selected>Tanlang...</option>
+        <option value="internet">Internet</option>
+        <option value="do'stlar">Do'stlar</option>
+        <option value="gazeta">Gazeta</option>
+        <option value="ijtimoiy_tarmoqlar">Ijtimoiy tarmoqlar</option>
     </select>
+    <label for="working_period">Bizda qancha vaqt ishlamoqchisiz?:</label>
+    <input type="text" id="working_period" name="working_period" required>
 
-    <label for="criminal_record_details">Sudlanganligingiz (Qaysi moddalar bo'yicha):</label>
-    <textarea id="criminal_record_details" name="criminal_record_details"></textarea>
+    <label for="personal_phone">Shaxsiy telefon raqam:</label>
+    <input type="text" id="personal_phone" name="personal_phone">
 
     <label for="additional_phone">Qo'shimcha telefon raqam:</label>
     <input type="text" id="additional_phone" name="additional_phone">
+
+    <h3>Oila a'zolari</h3>
+    <table id="familyTable">
+        <thead>
+        <tr>
+            <th>Oila a'zosi</th>
+            <th>F.I.SH</th>
+            <th>Tug'ilgan sana</th>
+            <th>Ish joyi lavozimi</th>
+            <th></th> <!-- Empty header for delete icon -->
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input type="text" name="family_member[]" required></td>
+            <td><input type="text" name="family_name[]" required></td>
+            <td><input type="date" name="family_birth_date[]" required></td>
+            <td><input type="text" name="job_title[]" required></td>
+            <td>
+                <button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">
+                    <i class="fa fa-trash" style="color: red; font-size: 14px;"></i>
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <button type="button" onclick="addFamilyMember()">+</button>
 
     <label for="personal_photo">Shaxsiy rasmingiz:</label>
     <input type="file" id="personal_photo" name="personal_photo" required>
 
     <label for="passport_type">Pasport turi:</label>
-    <select id="passport_type" name="passport_type" required>
+    <select id="passport_type" name="passport_type" onchange="togglePassportFields()" required>
+        <option value="" disabled selected>Tanlang...</option>
         <option value="passport">Pasport</option>
         <option value="id_card">ID karta</option>
     </select>
 
-    <label for="passport_photo">Pasport rasmi (yoki ID card):</label>
-    <input type="file" id="passport_photo" name="passport_photo" required>
+    <div id="passport_fields" class="hidden">
+        <h3>Pasport rasmi:</h3>
+        <input type="file" name="passport_image" accept="image/*">
+    </div>
 
-    <label for="id_card_back_photo">ID card orqa tomon rasmi:</label>
-    <input type="file" id="id_card_back_photo" name="id_card_back_photo" required>
+    <div id="id_card_fields" class="hidden">
+        <label for="id_card_front">ID karta old tomoni:</label>
+        <input type="file" id="id_card_front" name="id_card_front" accept="image/*">
 
-    <label for="consent">Roziman (Rozilik shartlari bilan tanishish):</label>
-    <input type="checkbox" id="consent" name="consent" required>
+        <label for="id_card_back">ID karta orqa tomoni:</label>
+        <input type="file" id="id_card_back" name="id_card_back" accept="image/*">
+    </div>
 
-    <input type="submit" value="Yuborish">
+
+    <!--    <label for="passport_type">Pasport turi:</label>-->
+    <!--    <select id="passport_type" name="passport_type" onchange="togglePassportFields()" required>-->
+    <!--        <option value="" disabled selected>Tanlang...</option>-->
+    <!--        <option value="passport">Pasport</option>-->
+    <!--        <option value="id_card">ID karta</option>-->
+    <!--    </select>-->
+
+    <!--    <div id="passport_fields" class="hidden">-->
+    <!--        <h3>Pasport rasmi:</h3>-->
+    <!--        <input type="file" name="passport_image" accept="image/*" required>-->
+    <!--    </div>-->
+
+    <!--    <div id="id_card_fields" class="hidden">-->
+    <!--        <label for="id_card_front">ID karta old tomoni:</label>-->
+    <!--        <input type="file" id="id_card_front" name="id_card_front" accept="image/*" required>-->
+
+    <!--        <label for="id_card_back">ID karta orqa tomoni:</label>-->
+    <!--        <input type="file" id="id_card_back" name="id_card_back" accept="image/*" required>-->
+    <!--    </div>-->
+
+    <label for="difficulty">Bu anketani to'ldirish sizga qiyinlik tug'dirmadimi?</label>
+    <select id="difficulty" name="difficulty" required>
+        <option value="" disabled selected>Tanlang...</option>
+        <option value="o'son">Oson</option>
+        <option value="o'rta">O'rta</option>
+        <option value="qiyin">Qiyin</option>
+    </select>
+
+    <label class="response-label">Agar 10 kun davomida sizga qayta aloqaga chiqmasak bu lavozimga
+        ehtiyojimiz yo'qligini bildiradi. Tanlang:</label>
+    <div class="radio-container">
+        <input type="radio" id="understand" name="response" value="understand" required>
+        <label for="understand" class="radio-label">Qayta aloqaga chiqmasangiz to'g'ri tushunaman va bunga
+            roziman</label>
+    </div>
+    <div class="radio-container">
+        <input type="radio" id="other_position" name="response" value="other_position" required>
+        <label for="other_position" class="radio-label">Boshqa lavozimga taklif berishingizni xohlayman</label>
+    </div>
+
+
+    <div class="checkbox-item">
+        <label for="consent">Roziman (Rozilik shartlari bilan tanishish):</label>
+        <input type="checkbox" id="consent" name="consent" required>
+    </div>
+
+    <button type="submit" id="submit-btn">Yuborish</button>
 </form>
 
-<!--<script src="https://telegram.org/js/telegram-web-app.js"></script>-->
-<!--<script>-->
-<!--    const tg = window.Telegram.WebApp;-->
-<!--    tg.expand(); // Web Appni to‘liq ekran qilish uchun-->
+<script>
+    function addEducation() {
+        const table = document.getElementById('educationTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
 
-<!--    document.getElementById('applicationForm').onsubmit = async function (event) {-->
-<!--        event.preventDefault(); // Formaning standart yuborilishini to'xtatish-->
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2); // New cell for delete button
 
-<!--        const formData = new FormData(event.target);-->
-<!--        const jsonData = {};-->
+        cell1.innerHTML = '<input type="text" name="education_institution[]" required>';
+        cell2.innerHTML = '<input type="text" name="graduation_year[]" required>';
+        cell3.innerHTML = '<button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">' +
+            '<i class="fa fa-trash" style="color: red; font-size: 14px;"></i>' +
+            '</button>';
+    }
 
-<!--        formData.forEach((value, key) => {-->
-<!--            jsonData[key] = value;-->
-<!--        });-->
+    function addLanguage() {
+        const table = document.getElementById('languageTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
 
-<!--        try {-->
-<!--            console.log(JSON.stringify(jsonData)); // Yuborilayotgan ma'lumotlarni ko'rsatish-->
-<!--            await tg.sendData(JSON.stringify(jsonData)); // Botga forma ma'lumotlarini yuborish-->
-<!--            alert('Ma\'lumot yuborildi!'); // Foydalanuvchiga xabar berish-->
-<!--        } catch (error) {-->
-<!--            console.error('Xatolik:', error);-->
-<!--            alert('Ma\'lumot yuborishda xatolik yuz berdi. Iltimos, qayta urinib ko\'ring.'); // Xatolik xabari-->
-<!--        } finally {-->
-<!--            tg.close(); // Web Appni yopish-->
-<!--        }-->
-<!--    };-->
-<!--</script>-->
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2); // New cell for delete button
+
+        cell1.innerHTML = '<input type="text" name="language[]" required>';
+        cell2.innerHTML = '<select name="language_level[]" required>' +
+            '<option value="yaxshi">Yaxshi</option>' +
+            '<option value="o\'rtacha">O\'rtacha</option>' +
+            '<option value="yomon">Yomon</option>' +
+            '</select>';
+        cell3.innerHTML = '<button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">' +
+            '<i class="fa fa-trash" style="color: red; font-size: 14px;"></i>' +
+            '</button>';
+    }
+
+    function togglePassportFields() {
+        const passportType = document.getElementById('passport_type').value;
+        const passportFields = document.getElementById('passport_fields');
+        const idCardFields = document.getElementById('id_card_fields');
+
+        if (passportType === 'passport') {
+            passportFields.classList.remove('hidden');
+            idCardFields.classList.add('hidden');
+            document.querySelector('input[name="passport_image"]').required = true;
+            document.querySelector('input[name="id_card_front"]').required = false;
+            document.querySelector('input[name="id_card_back"]').required = false;
+        } else if (passportType === 'id_card') {
+            idCardFields.classList.remove('hidden');
+            passportFields.classList.add('hidden');
+            document.querySelector('input[name="passport_image"]').required = false;
+            document.querySelector('input[name="id_card_front"]').required = true;
+            document.querySelector('input[name="id_card_back"]').required = true;
+        } else {
+            passportFields.classList.add('hidden');
+            idCardFields.classList.add('hidden');
+            document.querySelector('input[name="passport_image"]').required = false;
+            document.querySelector('input[name="id_card_front"]').required = false;
+            document.querySelector('input[name="id_card_back"]').required = false;
+        }
+    }
+
+
+    function addFamilyMember() {
+        const table = document.getElementById('familyTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2);
+        const cell4 = newRow.insertCell(3);
+        const cell5 = newRow.insertCell(4); // New cell for delete button
+
+        cell1.innerHTML = '<input type="text" name="family_member[]" required>';
+        cell2.innerHTML = '<input type="text" name="family_name[]" required>';
+        cell3.innerHTML = '<input type="date" name="family_birth_date[]" required>';
+        cell4.innerHTML = '<input type="text" name="job_title[]" required>';
+        cell5.innerHTML = '<button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">' +
+            '<i class="fa fa-trash" style="color: red; font-size: 14px;"></i>' +
+            '</button>';
+    }
+
+
+    function addSoftware() {
+        const table = document.getElementById('softwareTable').getElementsByTagName('tbody')[0];
+        const newRow = table.insertRow();
+
+        const cell1 = newRow.insertCell(0);
+        const cell2 = newRow.insertCell(1);
+        const cell3 = newRow.insertCell(2); // New cell for delete button
+
+        cell1.innerHTML = '<input type="text" name="software[]" required>';
+        cell2.innerHTML = '<select name="software_level[]" required>' +
+            '<option value="yaxshi">Yaxshi</option>' +
+            '<option value="o\'rtacha">O\'rtacha</option>' +
+            '<option value="yomon">Yomon</option>' +
+            '</select>';
+        cell3.innerHTML = '<button type="button" onclick="deleteRow(this)" style="background: none; border: none; padding: 0;">' +
+            '<i class="fa fa-trash" style="color: red; font-size: 14px;"></i>' +
+            '</button>';
+    }
+
+
+    function updateDistricts() {
+        const region = document.getElementById("region").value;
+        const districtSelect = document.getElementById("city_district");
+
+        const districts = {
+            "toshkent": ["Toshkent", "Chilonzor", "Mirzo Ulug'bek", "Yunusobod", "Sergeli", "Olmazor", "Bektemir", "Yunusabad", "Shayxontohur"],
+            "andijon": ["Andijon", "Asaka", "Baliqchi", "Xonobod", "Oltinqol", "Marhamat", "Shahrikhon", "Ulug'nor", "Jalaquduq"],
+            "buxoro": ["Buxoro", "G'ijduvon", "Kogon", "Qorako'l", "Vobkent", "Peshku", "Olot", "Jondor", "Shofirkon"],
+            "jizzax": ["Jizzax", "Baxmal", "Zafarobod", "G'allaorol", "Yangiobod", "Do'stlik", "Gallaorol", "Zafarobod", "Uchtepa"],
+            "navoiy": ["Navoiy", "Zarafshan", "Kiziltepa", "Uchquduq", "Navbahor", "Xatirchi", "Tomdi"],
+            "namangan": ["Namangan", "Chortoq", "Mingbuloq", "Uchqo'rg'on", "Pakhtakor", "Norin", "Kosonsoy"],
+            "samarqand": ["Samarqand", "Ishtixon", "Jomboy", "Narpay", "Oqdaryo", "Past Darg'om", "Samarqand", "Turon"],
+            "sirdaryo": ["Sirdaryo", "Guliston", "Mirzaobod", "Sayxun", "Baxt", "Oqoltin", "Xovos"],
+            "surxondaryo": ["Surxondaryo", "Denov", "Jarqo'rg'on", "Angor", "Boysun", "Muzrabot", "Qiziriq"],
+            "farg'ona": ["Farg'ona", "Furqat", "Oltiariq", "Qo'qon", "Marg'ilon", "O'sh", "Quva", "Yangiqo'rg'on"],
+            "xorazm": ["Xorazm", "Urganj", "Yangibozor", "Gurlan", "Xonqa", "Shovot", "Toshloq"],
+            "qashqadaryo": ["Qashqadaryo", "Shahrisabz", "Kasan", "Yakkabog'", "G'uzor", "Qarshi", "Muborak"],
+            "qoraqalpog'iston": ["Nukus", "Beruniy", "Kegay", "Shumanay", "Chimboy", "Ellikqala", "To'rtko'l"]
+        };
+
+        districtSelect.innerHTML = '<option value="">Tanlang...</option>';
+
+        if (districts[region]) {
+            districts[region].forEach(function (district) {
+                const option = document.createElement("option");
+                option.value = district.toLowerCase();
+                option.text = district;
+                districtSelect.appendChild(option);
+            });
+        }
+    }
+
+    function togglePreviousJobInfo() {
+        const isEmployed = document.getElementById('is_employed').value;
+        const previousJobInfo = document.getElementById('previousJobInfo');
+
+        if (isEmployed === 'true') {
+            previousJobInfo.classList.remove('hidden');
+        } else {
+            previousJobInfo.classList.add('hidden');
+            document.getElementById('previous_job').value = '';
+            document.getElementById('previous_salary').value = '';
+        }
+    }
+
+    function deleteRow(button) {
+        // O'chirish tugmasi bosilganda qatorni o'chirish
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+
 </body>
 </html>

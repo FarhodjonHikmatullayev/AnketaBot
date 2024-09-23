@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muvaffaqiyatli yuborish</title>
     <style>
+
+
         body {
             margin: 0;
             padding: 0;
@@ -12,7 +14,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #0088cc 0%, #00bfff 100%);
+            background: linear-gradient(135deg, #007a00 0%, #00b300 100%);
             color: #ffffff;
             font-family: 'Arial', sans-serif;
             text-align: center;
@@ -35,8 +37,9 @@
             padding: 40px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
-            max-width: 90%; /* Responsive max width */
-            width: 400px; /* Fixed width for larger screens */
+            max-width: 90%;
+            /* Responsive max width /
+           width: 400px; / Fixed width for larger screens */
         }
 
         .button {
@@ -44,38 +47,36 @@
             border: none;
             border-radius: 5px;
             background-color: #ffffff;
-            color: #0088cc;
+            color: #007a00;
             font-size: 1em;
             cursor: pointer;
             transition: background-color 0.3s, color 0.3s;
         }
 
         .button:hover {
-            background-color: #0088cc;
+            background-color: #007a00;
             color: #ffffff;
         }
 
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2em; /* Smaller font size for mobile */
-            }
-
-            p {
-                font-size: 1em; /* Smaller font size for mobile */
-            }
-
-            .container {
-                padding: 20px; /* Reduced padding for mobile */
-            }
+        p {
+            font-size: 1em; /* Smaller font size for mobile */
         }
+
+        h1 {
+            font-size: 2em;
+        / Smaller font size for mobile * /
+        }
+
+        .container {
+            padding: 20px; /* Reduced padding for mobile */
+        }
+
     </style>
 </head>
 <body>
 <div class="container">
     <h1>Sizning anketangiz yuborildi</h1>
-    <p>Rahmat! Sizning ma'lumotlaringiz muvaffaqiyatli saqlandi.</p>
-<!--    <button class="button" onclick="window.history.back();">Ortga qaytish</button>-->
+    <p>Rahmat! Sizga tez orada aloqaga chiqamiz.</p>
 </div>
 </body>
 </html>
