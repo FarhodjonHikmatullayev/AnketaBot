@@ -13,12 +13,6 @@
             display: block;
         }
 
-        /*.radio-container {*/
-        /*    display: inline-block;*/
-        /*    margin-right: 20px;*/
-        /*    vertical-align: middle;*/
-        /*}*/
-
         .radio-label {
             color: #333;
             font-size: 14px;
@@ -268,15 +262,15 @@
 
     <label for="gender">Jinsingiz:</label>
     <select id="gender" name="gender" required>
-        <option value="male">Erkak</option>
-        <option value="female">Ayol</option>
+        <option value="Erkak">Erkak</option>
+        <option value="Ayol">Ayol</option>
     </select>
 
     <label for="marital_status">Oilaviy xolatingiz:</label>
     <select id="marital_status" name="marital_status" required>
-        <option value="single">Turmush qurmagan</option>
-        <option value="married">Turmush qurgan</option>
-        <option value="divorced">Ajrashgan</option>
+        <option value="Turmush qurmagan">Turmush qurmagan</option>
+        <option value="Turmush qurgan">Turmush qurgan</option>
+        <option value="Ajrashgan">Ajrashgan</option>
     </select>
 
     <h3>Ta'lim muassasalari</h3>
@@ -318,7 +312,7 @@
                 <select name="language_level[]" required>
                     <option value="yaxshi">Yaxshi</option>
                     <option value="o'rtacha">O'rtacha</option>
-                    <option value="yomon">Yomon</option>
+                    <option value="yomon">Bilmayman</option>
                 </select>
             </td>
             <td>
@@ -456,7 +450,7 @@
             <td><input type="text" name="software[]" value="Word" required></td>
             <td>
                 <select name="software_level[]" required>
-                    <option value="yomon">Yomon</option>
+                    <option value="yomon">Bilmayman</option>
                     <option value="o'rtacha">O'rtacha</option>
                     <option value="yaxshi">Yaxshi</option>
                 </select>
@@ -471,7 +465,7 @@
             <td><input type="text" name="software[]" value="Excel" required></td>
             <td>
                 <select name="software_level[]" required>
-                    <option value="yomon">Yomon</option>
+                    <option value="yomon">Bilmayman</option>
                     <option value="o'rtacha">O'rtacha</option>
                     <option value="yaxshi">Yaxshi</option>
                 </select>
@@ -486,7 +480,7 @@
             <td><input type="text" name="software[]" value="Photoshop" required></td>
             <td>
                 <select name="software_level[]" required>
-                    <option value="yomon">Yomon</option>
+                    <option value="yomon">Bilmayman</option>
                     <option value="o'rtacha">O'rtacha</option>
                     <option value="yaxshi">Yaxshi</option>
                 </select>
@@ -501,7 +495,7 @@
             <td><input type="text" name="software[]" value="1C" required></td>
             <td>
                 <select name="software_level[]" required>
-                    <option value="yomon">Yomon</option>
+                    <option value="yomon">Bilmayman</option>
                     <option value="o'rtacha">O'rtacha</option>
                     <option value="yaxshi">Yaxshi</option>
                 </select>
@@ -545,10 +539,9 @@
     <h3>Bo'sh ish o'rni haqida qayerdan bildingiz?</h3>
     <select id="job_source" name="job_source" required>
         <option value="" disabled selected>Tanlang...</option>
-        <option value="internet">Internet</option>
-        <option value="do'stlar">Do'stlar</option>
-        <option value="gazeta">Gazeta</option>
-        <option value="ijtimoiy_tarmoqlar">Ijtimoiy tarmoqlar</option>
+        <option value="Tanishlar orqali">Tanishlar orqali</option>
+        <option value="E'lon, tarqatma material">E'lon, tarqatma material</option>
+        <option value="Ijtimoiy tarmoqlar">Ijtimoiy tarmoqlar</option>
     </select>
     <label for="working_period">Bizda qancha vaqt ishlamoqchisiz?:</label>
     <input type="text" id="working_period" name="working_period" required>
@@ -610,43 +603,25 @@
     </div>
 
 
-    <!--    <label for="passport_type">Pasport turi:</label>-->
-    <!--    <select id="passport_type" name="passport_type" onchange="togglePassportFields()" required>-->
-    <!--        <option value="" disabled selected>Tanlang...</option>-->
-    <!--        <option value="passport">Pasport</option>-->
-    <!--        <option value="id_card">ID karta</option>-->
-    <!--    </select>-->
-
-    <!--    <div id="passport_fields" class="hidden">-->
-    <!--        <h3>Pasport rasmi:</h3>-->
-    <!--        <input type="file" name="passport_image" accept="image/*" required>-->
-    <!--    </div>-->
-
-    <!--    <div id="id_card_fields" class="hidden">-->
-    <!--        <label for="id_card_front">ID karta old tomoni:</label>-->
-    <!--        <input type="file" id="id_card_front" name="id_card_front" accept="image/*" required>-->
-
-    <!--        <label for="id_card_back">ID karta orqa tomoni:</label>-->
-    <!--        <input type="file" id="id_card_back" name="id_card_back" accept="image/*" required>-->
-    <!--    </div>-->
-
     <label for="difficulty">Bu anketani to'ldirish sizga qiyinlik tug'dirmadimi?</label>
     <select id="difficulty" name="difficulty" required>
         <option value="" disabled selected>Tanlang...</option>
-        <option value="o'son">Oson</option>
-        <option value="o'rta">O'rta</option>
-        <option value="qiyin">Qiyin</option>
+        <option value="Oson">Oson</option>
+        <option value="O'rta">O'rta</option>
+        <option value="Qiyin">Qiyin</option>
     </select>
 
     <label class="response-label">Agar 10 kun davomida sizga qayta aloqaga chiqmasak bu lavozimga
         ehtiyojimiz yo'qligini bildiradi. Tanlang:</label>
     <div class="radio-container">
-        <input type="radio" id="understand" name="response" value="understand" required>
+        <input type="radio" id="understand" name="response"
+               value="Qayta aloqaga chiqmasangiz to'g'ri tushunaman va bunga roziman" required>
         <label for="understand" class="radio-label">Qayta aloqaga chiqmasangiz to'g'ri tushunaman va bunga
             roziman</label>
     </div>
     <div class="radio-container">
-        <input type="radio" id="other_position" name="response" value="other_position" required>
+        <input type="radio" id="other_position" name="response" value="Boshqa lavozimga taklif berishingizni xohlayman"
+               required>
         <label for="other_position" class="radio-label">Boshqa lavozimga taklif berishingizni xohlayman</label>
     </div>
 

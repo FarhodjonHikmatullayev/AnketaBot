@@ -80,7 +80,7 @@ class Application(models.Model):
     first_name = models.CharField(max_length=50, null=True, verbose_name='Ism')
     last_name = models.CharField(max_length=50, null=True, verbose_name='Familiya')
     pdf_file = models.FileField(upload_to='pdfs/', null=True, blank=True, verbose_name='PDF fayl')
-    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="Yuborilgan vaqt")
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
