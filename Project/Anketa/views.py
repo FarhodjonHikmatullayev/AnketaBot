@@ -115,11 +115,12 @@ def questionnaire_view(request):
             y, new_page = draw_string(p, f"{member} - {name} - {'.'.join(birth)} - {job}", y)
 
         # Boshqa ma'lumotlar
-        y, new_page = draw_string(p, f"Oldin biror joyda ishlaganmisiz: {'Ha' if request.POST.get('worked_before') == 'true' else 'Yoq'}", y)
+        y, new_page = draw_string(p, f"Oldin bizning kompaniyada ishlaganmisiz: {'Ha' if request.POST.get('worked_before') == 'true' else 'Yoq'}", y)
         y, new_page = draw_string(p, f"O'zbekiston fuqarosimisiz: {'Ha' if request.POST.get('is_citizen') == 'true' else 'Yoq'}", y)
-        y, new_page = draw_string(p, f"Hozir ish bilan ta'minlanganmisiz: {'Ha' if request.POST.get('is_employed') == 'true' else 'Yoq'}", y)
-        y, new_page = draw_string(p, f"Oldingi ish joyingiz: {request.POST.get('previous_job')}", y)
-        y, new_page = draw_string(p, f"Oldingi maoshingiz: {request.POST.get('previous_salary')}", y)
+        y, new_page = draw_string(p, f"Ilgari biror joyda ishlaganmisiz: {'Ha' if request.POST.get('is_employed') == 'true' else 'Yoq'}", y)
+        if request.POST.get('is_employed') == 'true':
+            y, new_page = draw_string(p, f"Oldingi ish joyingiz: {request.POST.get('previous_job')}", y)
+            y, new_page = draw_string(p, f"Oldingi maoshingiz: {request.POST.get('previous_salary')}", y)
         y, new_page = draw_string(p, f"Bizdang kompaniyada ishlaydigan yaqin qarindoshingiz bormi: {'Ha' if request.POST.get('relative_in_company') == 'true' else 'Yoq'}", y)
         y, new_page = draw_string(p, f"Sog'lig'ingiz haqida ma'lumot: {request.POST.get('health_info')}", y)
         y, new_page = draw_string(p, f"Qancha maosh olishni xohlaysiz (so'm): {request.POST.get('desired_salary')}", y)
