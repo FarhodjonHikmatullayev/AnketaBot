@@ -54,14 +54,14 @@ class Questionnaire(models.Model):
                                       verbose_name="Bizning kompaniyada qancha vaqt mobaynida ishlamoqchisiz?")
     personal_phone = models.CharField(max_length=20, verbose_name="Shaxsiy telefon raqam")
     additional_phone = models.CharField(max_length=20, verbose_name="Qo'shimcha telefon raqam", blank=True)
-    personal_photo = models.ImageField(upload_to='Project/photos/', verbose_name="Shaxsiy rasmingiz *")
+    personal_photo = models.ImageField(upload_to='temp/', verbose_name="Shaxsiy rasmingiz *")
     family_member = models.TextField(verbose_name="Oila a'zolari haqida ma'lumotlar")
     passport_type = models.CharField(max_length=20, verbose_name="Pasport turi")
-    passport_image = models.ImageField(upload_to='Project/passport_photos/',
+    passport_image = models.ImageField(upload_to='temp/',
                                        verbose_name="Pasport rasmi (yoki ID card)")
-    id_card_back_photo = models.ImageField(upload_to='Project/id_card_back_photos/',
+    id_card_back_photo = models.ImageField(upload_to='temp/',
                                            verbose_name="ID card orqa tomon rasmi")
-    id_card_front_photo = models.ImageField(upload_to='Project/id_card_front_photos/',)
+    id_card_front_photo = models.ImageField(upload_to='temp/',)
     difficulty = models.CharField(max_length=20, verbose_name="Anketaning qiyinlik darajasi")
     consent = models.BooleanField(default=False, verbose_name="Roziman * (Rozilik shartlari bilan tanishish)")
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)

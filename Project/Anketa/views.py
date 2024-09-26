@@ -184,6 +184,8 @@ def questionnaire_view(request):
 
                 p.drawImage(temp_file_full_path, 100, y_position - 200, width=200, height=200)
 
+                os.remove(temp_file_full_path)
+
                 y_position -= 250  # Move down for the next image
 
                 if y_position < 40:
