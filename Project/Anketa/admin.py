@@ -8,6 +8,6 @@ class UserAdmin(admin.ModelAdmin):
     search_fields = ('username', 'phone', 'telegram_id')
 
 
-@admin.register(Application)
-class ApplicationAdmin(admin.ModelAdmin):
+@admin.register(Questionnaire)
+class QuestionnaireAdmin(admin.ModelAdmin):
     list_display = ('id', 'first_name', 'last_name', 'created_at')
