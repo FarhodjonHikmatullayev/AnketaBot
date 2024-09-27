@@ -547,7 +547,7 @@
     <input type="text" id="working_period" name="working_period" required>
 
     <label for="personal_phone">Shaxsiy telefon raqam:</label>
-    <input type="text" id="personal_phone" name="personal_phone" accept="image/*">
+    <input type="text" id="personal_phone" name="personal_phone">
 
     <label for="additional_phone">Qo'shimcha telefon raqam:</label>
     <input type="text" id="additional_phone" name="additional_phone">
@@ -580,7 +580,7 @@
     <button type="button" onclick="addFamilyMember()">+</button>
 
     <label for="personal_photo">Shaxsiy rasmingiz:</label>
-    <input type="file" id="personal_photo" name="personal_photo" required>
+    <input type="file" id="personal_photo" name="personal_photo" accept="image/*" required>
 
     <label for="passport_type">Pasport turi:</label>
     <select id="passport_type" name="passport_type" onchange="togglePassportFields()" required>
@@ -592,15 +592,15 @@
     <div id="passport_fields" class="hidden">
         <h3>Pasport rasmi:</h3>
 <!--        <input type="file" name="passport_image" accept="image/*">-->
-        <input type="file" name="passport_image" accept="image*">
+        <input type="file" name="passport_image" accept="image/*">
     </div>
 
     <div id="id_card_fields" class="hidden">
         <label for="id_card_front">ID karta old tomoni:</label>
-        <input type="file" id="id_card_front" name="id_card_front" accept="image*">
+        <input type="file" id="id_card_front" name="id_card_front" accept="image/*">
 
         <label for="id_card_back">ID karta orqa tomoni:</label>
-        <input type="file" id="id_card_back" name="id_card_back" accept="image*">
+        <input type="file" id="id_card_back" name="id_card_back" accept="image/*">
     </div>
 
 
