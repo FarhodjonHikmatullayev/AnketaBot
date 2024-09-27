@@ -68,6 +68,7 @@ def questionnaire_view(request):
         height_weight = request.POST.get('height_weight')
         response = request.POST.get('response')
 
+
         buffer = io.BytesIO()
         p = canvas.Canvas(buffer, pagesize=letter)
         p.setFont("Helvetica", 12)
