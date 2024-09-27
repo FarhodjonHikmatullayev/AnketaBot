@@ -42,10 +42,10 @@ class Questionnaire(models.Model):
     software_skills = models.TextField(blank=True, verbose_name="Qaysi dasturlardan foydalana olasiz? va qay darajada")
     health_info = models.TextField(blank=True, verbose_name="Sog'ligingiz xaqida ma'lumotlar")
     previous_job = models.CharField(max_length=221, verbose_name="Ilgari biror joyda ishlaganmisiz?")
-    last_salary = models.DecimalField(max_digits=12, decimal_places=2,
+    last_salary = models.DecimalField(max_digits=10, decimal_places=2,
                                       verbose_name="Oxirgi ish joyida olgan ish xaqingiz (so'm)?", null=True,
                                       blank=True)
-    desired_salary = models.DecimalField(max_digits=12, decimal_places=2,
+    desired_salary = models.DecimalField(max_digits=10, decimal_places=2,
                                          verbose_name="Qancha maosh olishni xohlaysiz (so'm)?", null=True, blank=True)
     has_personal_car = models.BooleanField(default=False, verbose_name="Shaxsiy avtomobilingiz bormi?")
     can_travel = models.BooleanField(default=False, verbose_name="Xizmat safariga bora olasizmi?")
