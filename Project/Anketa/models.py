@@ -26,8 +26,6 @@ class Questionnaire(models.Model):
     education_institutions = models.CharField(max_length=200,
                                               verbose_name="Ta'lim muassasalari nomi va bitirgan yilingiz")  # ko'p bo'lishi mumkin
     height_weight = models.CharField(max_length=20, verbose_name="Bo'y va vazningiz (sm/kg)")
-    is_student = models.BooleanField(default=False,
-                                     verbose_name="Siz hozirda qaysidir universitet, litsey yoki kollej talabasimisiz?")
     languages = models.TextField(blank=True, verbose_name="Qaysi tillarni bilasiz? va qay darajada")
     region = models.CharField(max_length=100, verbose_name="Viloyat (Haqiqiy turar joy)")
     city_district = models.CharField(max_length=100, verbose_name="Shaxar/Tuman (Haqiqiy turar joy)")
