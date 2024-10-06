@@ -172,7 +172,7 @@ def questionnaire_view(request):
         y, new_page = draw_string(p,
                                   f"Agar 10 kun davomida sizga qayta aloqaga chiqmasak bu lavozimga ehtiyojimiz yo'qligini bildiradi. Tanlang: {request.POST.get('response')}",
                                   y)
-        temp_dir = 'temp'
+        temp_dir = 'tmp'
         if not os.path.exists(temp_dir):
             os.makedirs(temp_dir)
 
@@ -188,7 +188,7 @@ def questionnaire_view(request):
             if img:
                 y_position, new_page = draw_string(p, label, y_position)
 
-                temp_file_path = default_storage.save(f'temp/{img.name}', img)
+                temp_file_path = default_storage.save(f'tmp/{img.name}', img)
                 temp_file_full_path = default_storage.path(temp_file_path)
 
                 p.drawImage(temp_file_full_path, 100, y_position - 200, width=200, height=200)
