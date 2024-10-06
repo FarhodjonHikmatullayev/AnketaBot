@@ -68,7 +68,6 @@ def questionnaire_view(request):
         height_weight = request.POST.get('height_weight')
         response = request.POST.get('response')
 
-
         buffer = io.BytesIO()
         p = canvas.Canvas(buffer, pagesize=letter)
         p.setFont("Helvetica", 12)
@@ -207,50 +206,50 @@ def questionnaire_view(request):
         pdf_file = ContentFile(buffer.getvalue(), f"{first_name}_{last_name}.pdf")
         birth_date = datetime.strptime(request.POST.get('birth_date'), '%Y-%m-%d').date()
 
-        try:
-            questionnaire = Questionnaire(
-                first_name=first_name,
-                last_name=last_name,
-                birth_date=birth_date,
-                gender=gender,
-                marital_status=marital_status,
-                education_institutions=talim,
-                languages=tillar,
-                region=region,
-                city_district=city_district,
-                address=address,
-                desired_branch=', '.join(desired_branches),
-                desired_position=desired_position[0],
-                worked_before=worked_before,
-                is_citizen=is_citizen,
-                is_employed=is_employed,
-                previous_job=previous_job,
-                last_salary=previous_salary,
-                relative_in_company=relative_in_company,
-                software_skills=dasturlar,
-                health_info=health_info,
-                desired_salary=desired_salary,
-                has_personal_car=has_personal_car,
-                can_travel=can_travel,
-                job_source=job_source,
-                working_period=working_period,
-                personal_phone=personal_phone,
-                additional_phone=additional_phone,
-                family_member=oila,
-                personal_photo=personal_photo,
-                passport_type=passport_type,
-                passport_image=passport_image,
-                id_card_front_photo=id_card_front,
-                id_card_back_photo=id_card_back,
-                difficulty=difficulty,
-                consent=consent,
-                height_weight=height_weight,
-                response=response,
-                pdf_file=pdf_file,
-            )
-            questionnaire.save()
-        except Exception as e:
-            print(e)
+        # try:
+        questionnaire = Questionnaire(
+            first_name=first_name,
+            last_name=last_name,
+            birth_date=birth_date,
+            gender=gender,
+            marital_status=marital_status,
+            education_institutions=talim,
+            languages=tillar,
+            region=region,
+            city_district=city_district,
+            address=address,
+            desired_branch=', '.join(desired_branches),
+            desired_position=desired_position[0],
+            worked_before=worked_before,
+            is_citizen=is_citizen,
+            is_employed=is_employed,
+            previous_job=previous_job,
+            last_salary=previous_salary,
+            relative_in_company=relative_in_company,
+            software_skills=dasturlar,
+            health_info=health_info,
+            desired_salary=desired_salary,
+            has_personal_car=has_personal_car,
+            can_travel=can_travel,
+            job_source=job_source,
+            working_period=working_period,
+            personal_phone=personal_phone,
+            additional_phone=additional_phone,
+            family_member=oila,
+            personal_photo=personal_photo,
+            passport_type=passport_type,
+            passport_image=passport_image,
+            id_card_front_photo=id_card_front,
+            id_card_back_photo=id_card_back,
+            difficulty=difficulty,
+            consent=consent,
+            height_weight=height_weight,
+            response=response,
+            pdf_file=pdf_file,
+        )
+        questionnaire.save()
+        # except Exception as e:
+        #     print(e)
 
         return render(request, template_name='success.html')
     return render(request, 'form.html')
