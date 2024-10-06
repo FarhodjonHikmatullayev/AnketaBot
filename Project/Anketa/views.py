@@ -14,8 +14,6 @@ from .models import Questionnaire
 @csrf_protect
 def questionnaire_view(request):
     if request.method == 'POST':
-        print(request.POST)
-        print(request.FILES)
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         birth_date = request.POST.get('birth_date')
