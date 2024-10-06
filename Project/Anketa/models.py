@@ -56,14 +56,16 @@ class Questionnaire(models.Model):
     family_member = models.TextField(verbose_name="Oila a'zolari haqida ma'lumotlar")
     passport_type = models.CharField(max_length=20, verbose_name="Pasport turi")
     passport_image = models.ImageField(upload_to='temp/',
-                                       verbose_name="Pasport rasmi (yoki ID card)")
+                                       verbose_name="Pasport rasmi (yoki ID card)", null=True, blank=True)
     id_card_back_photo = models.ImageField(upload_to='temp/',
-                                           verbose_name="ID card orqa tomon rasmi")
-    id_card_front_photo = models.ImageField(upload_to='temp/',)
+                                           verbose_name="ID card orqa tomon rasmi", null=True, blank=True)
+    id_card_front_photo = models.ImageField(upload_to='temp/', null=True, blank=True,
+                                            verbose_name="ID card old tomon rasmi")
     difficulty = models.CharField(max_length=20, verbose_name="Anketaning qiyinlik darajasi")
     consent = models.BooleanField(default=False, verbose_name="Roziman * (Rozilik shartlari bilan tanishish)")
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-    response = models.CharField(max_length=500, null=True, blank=True, verbose_name="Agar 10 kun davomida sizga qayta aloqaga chiqmasak bu lavozimga ehtiyojimiz yo'qligini bildiradi. Tanlang:")
+    response = models.CharField(max_length=500, null=True, blank=True,
+                                verbose_name="Agar 10 kun davomida sizga qayta aloqaga chiqmasak bu lavozimga ehtiyojimiz yo'qligini bildiradi. Tanlang:")
     pdf_file = models.FileField(upload_to='pdfs/', null=True, blank=True, verbose_name='PDF fayl')
     created_at = models.DateTimeField(auto_now_add=True, null=True, blank=True, verbose_name="Yuborilgan vaqt")
 
@@ -74,7 +76,6 @@ class Questionnaire(models.Model):
 
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
-
 
 # class Application(models.Model):
 #     first_name = models.CharField(max_length=50, null=True, verbose_name='Ism')
@@ -92,5 +93,3 @@ class Questionnaire(models.Model):
 #
 #     def __str__(self):
 #         return f"{self.first_name} {self.last_name}"
-
-
