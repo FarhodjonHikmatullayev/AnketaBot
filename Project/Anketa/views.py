@@ -243,7 +243,7 @@ def questionnaire_view(request):
             consent=consent,
             height_weight=height_weight,
             response=response,
-            pdf_file=pdf_file,
+            # pdf_file=pdf_file,
         )
         questionnaire.save()
         # except Exception as e:
