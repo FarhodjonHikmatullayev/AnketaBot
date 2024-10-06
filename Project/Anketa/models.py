@@ -52,7 +52,7 @@ class Questionnaire(models.Model):
                                       verbose_name="Bizning kompaniyada qancha vaqt mobaynida ishlamoqchisiz?")
     personal_phone = models.CharField(max_length=20, verbose_name="Shaxsiy telefon raqam")
     additional_phone = models.CharField(max_length=20, verbose_name="Qo'shimcha telefon raqam", blank=True)
-    personal_photo = models.ImageField(upload_to='temp/', verbose_name="Shaxsiy rasmingiz *")
+    personal_photo = models.ImageField(upload_to='temp/', verbose_name="Shaxsiy rasmingiz *", null=True, blank=True)
     family_member = models.TextField(verbose_name="Oila a'zolari haqida ma'lumotlar")
     passport_type = models.CharField(max_length=20, verbose_name="Pasport turi")
     passport_image = models.ImageField(upload_to='temp/',
