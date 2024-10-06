@@ -172,6 +172,9 @@ def questionnaire_view(request):
         y, new_page = draw_string(p,
                                   f"Agar 10 kun davomida sizga qayta aloqaga chiqmasak bu lavozimga ehtiyojimiz yo'qligini bildiradi. Tanlang: {request.POST.get('response')}",
                                   y)
+        temp_dir = 'temp'
+        if not os.path.exists(temp_dir):
+            os.makedirs(temp_dir)
 
         images = [
             (request.FILES.get('personal_photo'), "* Shaxsiy rasmi"),
