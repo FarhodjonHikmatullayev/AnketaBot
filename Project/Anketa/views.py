@@ -236,7 +236,7 @@ def questionnaire_view(request):
             personal_phone=personal_phone,
             additional_phone=additional_phone,
             family_member=oila,
-            # personal_photo=personal_photo,
+            personal_photo=personal_photo,
             passport_type=passport_type,
             # passport_image=passport_image,
             # id_card_front_photo=id_card_front,
@@ -252,4 +252,4 @@ def questionnaire_view(request):
         #     print(e)
 
         return render(request, template_name='success.html')
-    return render(request, 'form.html')
+    return render(request, template_name='form.html')
