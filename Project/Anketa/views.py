@@ -175,35 +175,35 @@ def questionnaire_view(request):
         y, new_page = draw_string(p,
                                   f"Agar 10 kun davomida sizga qayta aloqaga chiqmasak bu lavozimga ehtiyojimiz yo'qligini bildiradi. Tanlang: {request.POST.get('response')}",
                                   y)
-        temp_dir = 'tmp'
-        if not os.path.exists(temp_dir):
-            os.makedirs(temp_dir)
-
-        images = [
-            (request.FILES.get('personal_photo'), "* Shaxsiy rasmi"),
-            (request.FILES.get('passport_image'), "* Pasport rasmi"),
-            (request.FILES.get('id_card_front'), "* ID kartaning old tomoni"),
-            (request.FILES.get('id_card_back'), "* ID kartaning orqa tomoni")
-        ]
-        y_position = y - 20  # Birinchi rasm uchun boshlanish joyi
-
-        for img, label in images:
-            if img:
-                y_position, new_page = draw_string(p, label, y_position)
-
-                temp_file_path = default_storage.save(f'tmp/{img.name}', img)
-                temp_file_full_path = default_storage.path(temp_file_path)
-
-                p.drawImage(temp_file_full_path, 100, y_position - 200, width=200, height=200)
-
-                # os.remove(temp_file_full_path)
-
-                y_position -= 250  # Move down for the next image
-
-                if y_position < 40:
-                    p.showPage()
-                    p.setFont("Helvetica", 12)
-                    y_position = 750
+        # temp_dir = 'temp'
+        # if not os.path.exists(temp_dir):
+        #     os.makedirs(temp_dir)
+        #
+        # images = [
+        #     (request.FILES.get('personal_photo'), "* Shaxsiy rasmi"),
+        #     (request.FILES.get('passport_image'), "* Pasport rasmi"),
+        #     (request.FILES.get('id_card_front'), "* ID kartaning old tomoni"),
+        #     (request.FILES.get('id_card_back'), "* ID kartaning orqa tomoni")
+        # ]
+        # y_position = y - 20  # Birinchi rasm uchun boshlanish joyi
+        #
+        # for img, label in images:
+        #     if img:
+        #         y_position, new_page = draw_string(p, label, y_position)
+        #
+        #         temp_file_path = default_storage.save(f'temp/{img.name}', img)
+        #         temp_file_full_path = default_storage.path(temp_file_path)
+        #
+        #         p.drawImage(temp_file_full_path, 100, y_position - 200, width=200, height=200)
+        #
+        #         # os.remove(temp_file_full_path)
+        #
+        #         y_position -= 250  # Move down for the next image
+        #
+        #         if y_position < 40:
+        #             p.showPage()
+        #             p.setFont("Helvetica", 12)
+        #             y_position = 750
 
         p.save()
         buffer.seek(0)
