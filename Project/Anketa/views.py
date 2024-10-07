@@ -56,10 +56,14 @@ def questionnaire_view(request):
         family_birth_date = request.POST.getlist('family_birth_date[]')
         job_title = request.POST.getlist('job_title[]')
         personal_photo = request.FILES.get('personal_photo')
+        print('personal_photo', personal_photo)
         passport_type = request.POST.get('passport_type')
         passport_image = request.FILES.get('passport_image')
+        print('passport_image', passport_image)
         id_card_front = request.FILES.get('id_card_front')
+        print('id_card_front', id_card_front)
         id_card_back = request.FILES.get('id_card_back')
+        print('id_card_back', id_card_back)
         difficulty = request.POST.get('difficulty')
         consent = request.POST.get('consent') == 'on'
         height_weight = request.POST.get('height_weight')
@@ -238,9 +242,9 @@ def questionnaire_view(request):
             family_member=oila,
             personal_photo=personal_photo,
             passport_type=passport_type,
-            # passport_image=passport_image,
-            # id_card_front_photo=id_card_front,
-            # id_card_back_photo=id_card_back,
+            passport_image=passport_image,
+            id_card_front_photo=id_card_front,
+            id_card_back_photo=id_card_back,
             difficulty=difficulty,
             consent=consent,
             height_weight=height_weight,
