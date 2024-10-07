@@ -39,7 +39,7 @@ class Questionnaire(models.Model):
                                               verbose_name="Bizdang kompaniyada ishlaydigan yaqin qarindoshingiz bormi?")
     software_skills = models.TextField(blank=True, verbose_name="Qaysi dasturlardan foydalana olasiz? va qay darajada")
     health_info = models.TextField(blank=True, verbose_name="Sog'ligingiz xaqida ma'lumotlar")
-    previous_job = models.CharField(max_length=221, verbose_name="Ilgari biror joyda ishlaganmisiz?")
+    previous_job = models.CharField(max_length=221, verbose_name="Oxirgi ish joyingiz", null=True, blank=True)
     last_salary = models.DecimalField(max_digits=10, decimal_places=2,
                                       verbose_name="Oxirgi ish joyida olgan ish xaqingiz (so'm)?", null=True,
                                       blank=True)
