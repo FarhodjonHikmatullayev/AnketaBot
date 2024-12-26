@@ -23,7 +23,7 @@ questionare = InlineKeyboardMarkup(
         [
             InlineKeyboardButton(
                 text="Anketa to'ldirish",
-                web_app=WebAppInfo(url=WEB_APP_URL)
+                url=WEB_APP_URL
             )
         ]
     ]
