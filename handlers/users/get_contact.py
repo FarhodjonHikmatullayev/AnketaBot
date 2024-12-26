@@ -12,14 +12,16 @@ async def get_contact(message: types.Message):
     first_name = contact.first_name
     last_name = contact.last_name
     username = message.from_user.username
-
-    await db.create_user(
-        phone=phone,
-        username=username,
-        telegram_id=user_id,
-        first_name=first_name,
-        last_name=last_name
-    )
+    try:
+        await db.create_user(
+            phone=phone,
+            username=username,
+            telegram_id=user_id,
+            first_name=first_name,
+            last_name=last_name
+        )
+    except:
+        pass
 
     text = "Siz muvofaqiyatli ro'yxatdan o'tdingiz!"
     await message.answer(text=text)
